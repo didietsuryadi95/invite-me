@@ -1,6 +1,8 @@
 package invitations
 
 import (
+	"strconv"
+
 	"github.com/jinzhu/gorm"
 
 	"github.com/gothinkster/golang-gin-realworld-example-app/common"
@@ -73,4 +75,45 @@ func AutoMigrate() {
 
 	db.AutoMigrate(&InvitationModel{})
 	db.AutoMigrate(&OrderModel{})
+}
+
+func FindOneInvitation(condition interface{}) (InvitationModel, error) {
+	db := common.GetDB()
+	var model InvitationModel
+	tx := db.Begin()
+	tx.Where(condition).First(&model)
+	err := tx.Commit().Error
+	return model, err
+}
+
+func FindInvitationByUser(userModel users.UserModel, search, limit, offset string) ([]InvitationModel, int, error) {
+	db := common.GetDB()
+	var models []InvitationModel
+	var count int
+
+	if userModel.ID == 0 {
+		return models, 0, nil
+	}
+
+	offset_int, err := strconv.Atoi(offset)
+	if err != nil {
+		offset_int = 0
+	}
+
+	limit_int, err := strconv.Atoi(limit)
+	if err != nil {
+		limit_int = 20
+	}
+
+	tx := db.Begin()
+	tx.Where(InvitationModel{UserModel: userModel})
+	if search != "" {
+		tx.Where(InvitationModel{UserModel: userModel, Slug: search})
+	}
+
+	db.Model(&models).Count(&count)
+	db.Offset(offset_int).Limit(limit_int).Find(&models)
+
+	err = tx.Commit().Error
+	return models, count, err
 }

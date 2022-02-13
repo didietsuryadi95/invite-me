@@ -13,16 +13,15 @@ func AdminInvitation(router *gin.RouterGroup) {
 	router.GET("/", getInvitationList)
 	router.GET("/:id", getInvitationById)
 	router.PUT("/:id", updateInvitationById)
+	router.POST("/", createInvitationById)
 	router.PUT("/:id/content", updateContentInvitationById)
 	router.GET("/:id/tracker", getInvitationTrackerById)
-	router.GET("/:id/modules", getModulesProperty)
-	router.POST("/", createInvitationById)
 	router.POST("/:id/order", createOrderInvitation)
 }
 
 func InvitationSettings(router *gin.RouterGroup) {
 	router.GET("/templates/", getTemplateProperty)
-	router.GET("/templates/:code/modules", getTemplateProperty)
+	router.GET("/templates/:code/modules", getModulesProperty)
 	router.GET("/themes", getTemplateProperty)
 	router.GET("/features", getTemplateProperty)
 }
