@@ -10,6 +10,7 @@ import (
 func UsersRegister(router *gin.RouterGroup) {
 	router.POST("/", UsersRegistration)
 	router.POST("/login", UsersLogin)
+	router.POST("/oauth", UsersLogin)
 }
 
 func UserRegister(router *gin.RouterGroup) {

@@ -3,7 +3,9 @@ package common
 import (
 	"fmt"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	"net/url"
 	"os"
 )
 
@@ -14,8 +16,15 @@ type Database struct {
 var DB *gorm.DB
 
 // Opening a database and save the reference to `Database` struct.
-func Init() *gorm.DB {
-	db, err := gorm.Open("sqlite3", "./../gorm.db")
+func Init(cfg Configuration) *gorm.DB {
+	dsn := url.URL{
+		User:     url.UserPassword(cfg.Database.User, cfg.Database.Password),
+		Scheme:   "internal",
+		Host:     fmt.Sprintf("%s:%d", cfg.Database.Host, cfg.Database.Port),
+		Path:     cfg.Database.Name,
+		RawQuery: (&url.Values{"sslmode": []string{"disable"}}).Encode(),
+	}
+	db, err := gorm.Open("postgres", dsn.String())
 	if err != nil {
 		fmt.Println("db err: (Init) ", err)
 	}
