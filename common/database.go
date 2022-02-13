@@ -19,11 +19,12 @@ var DB *gorm.DB
 func Init(cfg Configuration) *gorm.DB {
 	dsn := url.URL{
 		User:     url.UserPassword(cfg.Database.User, cfg.Database.Password),
-		Scheme:   "internal",
+		Scheme:   "postgres",
 		Host:     fmt.Sprintf("%s:%d", cfg.Database.Host, cfg.Database.Port),
 		Path:     cfg.Database.Name,
 		RawQuery: (&url.Values{"sslmode": []string{"disable"}}).Encode(),
 	}
+
 	db, err := gorm.Open("postgres", dsn.String())
 	if err != nil {
 		fmt.Println("db err: (Init) ", err)

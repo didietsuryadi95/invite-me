@@ -10,25 +10,25 @@ import (
 type InvitationModel struct {
 	gorm.Model
 	UserModel users.UserModel
-	Template  string            `json:"template" gorm:"column:template"`
-	Theme     string            `json:"theme" gorm:"column:theme"`
-	Settings  string            `json:"settings" gorm:"column:settings"`
-	UrlType   string            `json:"urlType" gorm:"column:urlType"`
-	EndDate   string            `json:"endDate" gorm:"column:endDate"`
-	Icon      string            `json:"icon" gorm:"column:icon"`
-	Language  string            `json:"language" gorm:"column:language"`
-	Title     string            `json:"title" gorm:"column:title"`
-	Slug      string            `json:"slug" gorm:"column:slug"`
-	StartDate string            `json:"startDate" gorm:"column:startDate"`
-	Modules   map[string]Module `json:"modules" gorm:"column:modules"`
+	Template  string `json:"template" gorm:"column:template"`
+	Theme     string `json:"theme" gorm:"column:theme"`
+	Settings  string `json:"settings" sql:"type:JSONB NOT NULL DEFAULT '{}'::JSONB"`
+	UrlType   string `json:"urlType" gorm:"column:urlType"`
+	EndDate   string `json:"endDate" gorm:"column:endDate"`
+	Icon      string `json:"icon" gorm:"column:icon"`
+	Language  string `json:"language" gorm:"column:language"`
+	Title     string `json:"title" gorm:"column:title"`
+	Slug      string `json:"slug" gorm:"column:slug"`
+	StartDate string `json:"startDate" gorm:"column:startDate"`
+	Modules   string `json:"modules" sql:"type:JSONB NOT NULL DEFAULT '{}'::JSONB"`
 }
 
 type WeddingSetting struct {
-	Bride         BrideInfo `json:"bride" gorm:"column:bride"`
-	Groom         BrideInfo `json:"groom" gorm:"column:groom"`
-	WeddingInfo   PlaceInfo `json:"wedding_info" gorm:"column:wedding_info"`
-	ReceptionInfo PlaceInfo `json:"reception_info" gorm:"column"`
-	Flower        string    `json:"flower" gorm:"column:flower"`
+	Bride         BrideInfo   `json:"bride" gorm:"column:bride"`
+	Groom         BrideInfo   `json:"groom" gorm:"column:groom"`
+	WeddingInfo   PlaceInfo   `json:"wedding_info" gorm:"column:wedding_info"`
+	ReceptionInfo []PlaceInfo `json:"reception_info" gorm:"column"`
+	Flower        string      `json:"flower" gorm:"column:flower"`
 }
 
 type BrideInfo struct {
@@ -46,7 +46,7 @@ type PlaceInfo struct {
 }
 
 type Module struct {
-	ModuleCode string `json:"moduleCode" gorm:"column:moduleCode"`
+	ModuleCode string      `json:"moduleCode" gorm:"column:moduleCode"`
 	Content    interface{} `json:"content" gorm:"column:content"`
 }
 
