@@ -11,6 +11,7 @@ import (
 type Configuration struct {
 	Server   ServerConfiguration   `mapstructure:"server"`
 	Database DatabaseConfiguration `mapstructure:"database"`
+	Redis    RedisConfig           `mapstructure:""`
 }
 
 // ServerConfiguration exported
@@ -25,6 +26,15 @@ type DatabaseConfiguration struct {
 	Name     string `mapstructure:"name"`
 	User     string `mapstructure:"user"`
 	Password string `mapstructure:"password"`
+}
+
+// RedisConfig exported
+type RedisConfig struct {
+	Address     string `mapstructure:"address"`
+	Password    string `mapstructure:"password"`
+	MaxIdle     int    `mapstructure:"maxIdle"`
+	MaxActive   int    `mapstructure:"maxActive"`
+	IdleTimeout int    `mapstructure:"idleTimeout"`
 }
 
 // New initializes a new Configuration from the ENV variables

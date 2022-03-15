@@ -8,7 +8,7 @@ import (
 	"github.com/gothinkster/golang-gin-realworld-example-app/articles"
 	"github.com/gothinkster/golang-gin-realworld-example-app/common"
 	"github.com/gothinkster/golang-gin-realworld-example-app/homes"
-	"github.com/gothinkster/golang-gin-realworld-example-app/invitations"
+	"github.com/gothinkster/golang-gin-realworld-example-app/sites"
 	"github.com/gothinkster/golang-gin-realworld-example-app/users"
 )
 
@@ -19,7 +19,7 @@ func Migrate(db *gorm.DB) {
 	db.AutoMigrate(&articles.FavoriteModel{})
 	db.AutoMigrate(&articles.ArticleUserModel{})
 	db.AutoMigrate(&articles.CommentModel{})
-	invitations.AutoMigrate()
+	sites.AutoMigrate()
 }
 
 func main() {
@@ -29,6 +29,8 @@ func main() {
 	Migrate(db)
 	defer db.Close()
 
+	common.Setup(*config)
+
 	r := gin.Default()
 	v1 := r.Group("/api")
 	users.UsersRegister(v1.Group("/users"))
@@ -36,13 +38,13 @@ func main() {
 	articles.ArticlesAnonymousRegister(v1.Group("/articles"))
 	articles.TagsAnonymousRegister(v1.Group("/tags"))
 	homes.HomeResources(v1.Group("/homes"))
-	invitations.Invitation(v1.Group("/invitations"))
+	sites.Site(v1.Group("/sites"))
+	sites.AdminSite(v1.Group("/admin/sites"))
 
 	v1.Use(users.AuthMiddleware(true))
 	users.UserRegister(v1.Group("/user"))
 	users.ProfileRegister(v1.Group("/profiles"))
-	invitations.AdminInvitation(v1.Group("/admin/invitations"))
-	invitations.InvitationSettings(v1.Group("/admin/settings"))
+	sites.SiteSettings(v1.Group("/admin/settings"))
 
 	articles.ArticlesRegister(v1.Group("/articles"))
 
