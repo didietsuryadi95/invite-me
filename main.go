@@ -5,11 +5,11 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"github.com/gothinkster/golang-gin-realworld-example-app/articles"
-	"github.com/gothinkster/golang-gin-realworld-example-app/common"
-	"github.com/gothinkster/golang-gin-realworld-example-app/homes"
-	"github.com/gothinkster/golang-gin-realworld-example-app/sites"
-	"github.com/gothinkster/golang-gin-realworld-example-app/users"
+	"github.com/didietsuryadi95/invite-me/articles"
+	"github.com/didietsuryadi95/invite-me/common"
+	"github.com/didietsuryadi95/invite-me/homes"
+	"github.com/didietsuryadi95/invite-me/sites"
+	"github.com/didietsuryadi95/invite-me/users"
 )
 
 func Migrate(db *gorm.DB) {

@@ -1,4 +1,4 @@
-module github.com/gothinkster/golang-gin-realworld-example-app
+module github.com/didietsuryadi95/invite-me
 
 go 1.15
 

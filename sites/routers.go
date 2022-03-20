@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/gothinkster/golang-gin-realworld-example-app/users"
+	"github.com/didietsuryadi95/invite-me/users"
 )
 
 func Site(router *gin.RouterGroup) {

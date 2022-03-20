@@ -2,10 +2,11 @@ package articles
 
 import (
 	_ "fmt"
-	"github.com/jinzhu/gorm"
-	"github.com/gothinkster/golang-gin-realworld-example-app/common"
-	"github.com/gothinkster/golang-gin-realworld-example-app/users"
 	"strconv"
+
+	"github.com/didietsuryadi95/invite-me/common"
+	"github.com/didietsuryadi95/invite-me/users"
+	"github.com/jinzhu/gorm"
 )
 
 type ArticleModel struct {

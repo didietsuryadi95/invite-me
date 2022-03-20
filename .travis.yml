@@ -5,13 +5,13 @@ go:
   - 1.8.x
   - master
 
-go_import_path: github.com/gothinkster/golang-gin-realworld-example-app
+go_import_path: github.com/didietsuryadi95/invite-me
 
 services:
   - sqlite3
 
 install:
-  - go get -u github.com/gothinkster/golang-gin-realworld-example-app
+  - go get -u github.com/didietsuryadi95/invite-me
   - go get -u github.com/kardianos/govendor
   - govendor sync
 script:

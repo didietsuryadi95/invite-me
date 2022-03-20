@@ -5,8 +5,8 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"github.com/gothinkster/golang-gin-realworld-example-app/common"
-	"github.com/gothinkster/golang-gin-realworld-example-app/users"
+	"github.com/didietsuryadi95/invite-me/common"
+	"github.com/didietsuryadi95/invite-me/users"
 )
 
 type SiteModel struct {

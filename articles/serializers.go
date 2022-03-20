@@ -2,7 +2,7 @@ package articles
 
 import (
 	"github.com/gosimple/slug"
-	"github.com/gothinkster/golang-gin-realworld-example-app/users"
+	"github.com/didietsuryadi95/invite-me/users"
 	"github.com/gin-gonic/gin"
 )
 
