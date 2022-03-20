@@ -168,11 +168,11 @@ var siteModels = map[string]SiteModel{
 	"id2": {
 		UserModel: userModel,
 		Template:  "MICRO_SITE",
-		Theme:     "BIO",
+		Theme:     "BIO_1",
 		Settings:  map[string]string{
-			"avatar": "",
-			"title": "",
-			"bio": "1",
+			"avatar": "https://image_url",
+			"title": "Ikhsan Mahendri",
+			"bio": "Welcome to My Content",
 		},
 		UrlType:   "SLUG",
 		EndDate:   "1741852352",
@@ -182,12 +182,68 @@ var siteModels = map[string]SiteModel{
 		Slug:      "ikhsan",
 		SubSlug:   "",
 		StartDate: "1647183152",
-		Modules:   "",
+		Modules:   []Modules{
+			{
+				Language:  "ID",
+				Contents: []Module{
+					{
+						ModuleCode: "LINK",
+						Content: []map[string]string{
+							{
+								"url": "https://blablabalbla",
+								"color": "#fffff",
+								"text": "Ini Link",
+							},
+							{
+								"url": "https://blablabalbla",
+								"color": "#fffff",
+								"text": "Ini Link",
+							},
+							{
+								"url": "https://blablabalbla",
+								"color": "#fffff",
+								"text": "Ini Link",
+							},
+							{
+								"url": "https://blablabalbla",
+								"color": "#fffff",
+								"text": "Ini Link",
+							},
+							{
+								"url": "https://blablabalbla",
+								"color": "#fffff",
+								"text": "Ini Link",
+							},
+							{
+								"url": "https://blablabalbla",
+								"color": "#fffff",
+								"text": "Ini Link",
+							},
+						},
+					},
+				},
+			},
+		},
 	},
 }
 
 func getEndUserSite(c *gin.Context) {
+	language := c.Query("language")
+	if language == "" {
+		language = "ID"
+	}
+	slugs := map[string]string {
+		"wedding": "id1",
+		"bio": "id2",
+	}
 
+	slug := c.Param("slug")
+	if slugs[slug] == "" {
+		c.JSON(http.StatusNotFound, gin.H{"data": nil})
+		return
+	}
+	siteSerializer := EndUserSiteSerializer{c, siteModels[slugs[slug]], language}
+	c.JSON(http.StatusOK, gin.H{"data": siteSerializer.Response()})
 }
 
 func trackSite(c *gin.Context) {
@@ -207,8 +263,8 @@ func getSiteList(c *gin.Context) {
 
 func getSiteById(c *gin.Context) {
 
-
-	siteSerializer := SiteSerializer{c, siteModels["id1"]}
+	id := c.Param("id")
+	siteSerializer := SiteSerializer{c, siteModels[id]}
 	c.JSON(http.StatusOK, gin.H{"data": siteSerializer.Response()})
 
 }
