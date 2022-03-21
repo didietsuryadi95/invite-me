@@ -41,19 +41,20 @@ var userModel = users.UserModel{
 var siteModels = map[string]SiteModel{
 	"id1": {
 		UserModel: userModel,
+		HashID:    "id1",
 		Template:  "WEDDING",
 		Theme:     "FLOWER_1",
-		Settings:  map[string]interface{}{
+		Settings: map[string]interface{}{
 			"bride": map[string]string{
-				"fullname": "Larasati",
+				"fullname":  "Larasati",
 				"shortname": "Laras",
 			},
 			"groom": map[string]string{
-				"fullname": "Ikhsan Mahendri ST",
+				"fullname":  "Ikhsan Mahendri ST",
 				"shortname": "Ikhsan",
 			},
 			"flower": "1",
-			"theme": "dark",
+			"theme":  "dark",
 		},
 		UrlType:   "SUBDOMAIN",
 		EndDate:   "1741852352",
@@ -63,14 +64,14 @@ var siteModels = map[string]SiteModel{
 		Slug:      "ikhsan-laras",
 		SubSlug:   "",
 		StartDate: "1647183152",
-		Modules:   []Modules{
+		Modules: []Modules{
 			{
 				Language: "ID",
 				Contents: []Module{
 					{
 						ModuleCode: "HOME",
 						Content: map[string]string{
-							"date": "1231231242343",
+							"date":      "1231231242343",
 							"placeName": "Gedung Serba Guna Sapta Taruna 3",
 						},
 					},
@@ -80,20 +81,20 @@ var siteModels = map[string]SiteModel{
 							{
 								"eventType": "Ijab Qobul",
 								"startDate": "1231231231321",
-								"endDate": "1231231231321",
+								"endDate":   "1231231231321",
 								"placeName": "Gedung Serba Guna Sapta Taruna 3",
-								"address": "Jl. Koperpu II No.32, RT.001/RW.034, Bojong Rawalumbu, Kec. Rawalumbu, Kota Bks, Jawa Barat 17116",
-								"useMaps": "true",
-								"maps": "https://www.google.com/maps/place/Komplek+Sapta+Taruna+III/@-6.2833277,106.987009,17z/data=!3m1!4b1!4m5!3m4!1s0x2e698dedf4033c4f:0xbb28452d1532f7ea!8m2!3d-6.2833277!4d106.9891977?shorturl=1",
+								"address":   "Jl. Koperpu II No.32, RT.001/RW.034, Bojong Rawalumbu, Kec. Rawalumbu, Kota Bks, Jawa Barat 17116",
+								"useMaps":   "true",
+								"maps":      "https://www.google.com/maps/place/Komplek+Sapta+Taruna+III/@-6.2833277,106.987009,17z/data=!3m1!4b1!4m5!3m4!1s0x2e698dedf4033c4f:0xbb28452d1532f7ea!8m2!3d-6.2833277!4d106.9891977?shorturl=1",
 							},
 							{
 								"eventType": "Wedding Reception",
 								"startDate": "1231231231321",
-								"endDate": "1231231231321",
+								"endDate":   "1231231231321",
 								"placeName": "Gedung Serba Guna Sapta Taruna 3",
-								"address": "Jl. Koperpu II No.32, RT.001/RW.034, Bojong Rawalumbu, Kec. Rawalumbu, Kota Bks, Jawa Barat 17116",
-								"useMaps": "false",
-								"maps": "https://www.google.com/maps/place/Komplek+Sapta+Taruna+III/@-6.2833277,106.987009,17z/data=!3m1!4b1!4m5!3m4!1s0x2e698dedf4033c4f:0xbb28452d1532f7ea!8m2!3d-6.2833277!4d106.9891977?shorturl=1",
+								"address":   "Jl. Koperpu II No.32, RT.001/RW.034, Bojong Rawalumbu, Kec. Rawalumbu, Kota Bks, Jawa Barat 17116",
+								"useMaps":   "false",
+								"maps":      "https://www.google.com/maps/place/Komplek+Sapta+Taruna+III/@-6.2833277,106.987009,17z/data=!3m1!4b1!4m5!3m4!1s0x2e698dedf4033c4f:0xbb28452d1532f7ea!8m2!3d-6.2833277!4d106.9891977?shorturl=1",
 							},
 						},
 					},
@@ -105,16 +106,16 @@ var siteModels = map[string]SiteModel{
 								"text": "Bismillahirrohmanirrahiim \n In the Name of Allah Subhanahu Wa Ta`ala the Most Beneficent and the Most Merciful. It is our moment to celebrate the love that unites our children",
 							},
 							{
-								"type": "BRIDE",
+								"type":          "BRIDE",
 								"childrenOrder": "1",
-								"fatherName": "Drs. Iwa Karsiwa, M.Pd",
-								"motherName": "Dini Sri Handayani",
+								"fatherName":    "Drs. Iwa Karsiwa, M.Pd",
+								"motherName":    "Dini Sri Handayani",
 							},
 							{
-								"type": "GROOM",
+								"type":          "GROOM",
 								"childrenOrder": "1",
-								"fatherName": "Nurhendri",
-								"motherName": "Magdalena",
+								"fatherName":    "Nurhendri",
+								"motherName":    "Magdalena",
 							},
 						},
 					},
@@ -122,33 +123,33 @@ var siteModels = map[string]SiteModel{
 						ModuleCode: "GALLERY",
 						Content: []map[string]string{
 							{
-								"url": "https://blablabalbla",
-								"type": "PHOTO",
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
 								"dimention": "Potrait",
 							},
 							{
-								"url": "https://blablabalbla",
-								"type": "PHOTO",
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
 								"dimention": "Potrait",
 							},
 							{
-								"url": "https://blablabalbla",
-								"type": "PHOTO",
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
 								"dimention": "Potrait",
 							},
 							{
-								"url": "https://blablabalbla",
-								"type": "PHOTO",
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
 								"dimention": "Potrait",
 							},
 							{
-								"url": "https://blablabalbla",
-								"type": "PHOTO",
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
 								"dimention": "Potrait",
 							},
 							{
-								"url": "https://blablabalbla",
-								"type": "PHOTO",
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
 								"dimention": "Potrait",
 							},
 						},
@@ -156,7 +157,7 @@ var siteModels = map[string]SiteModel{
 					{
 						ModuleCode: "CHAT_BOX",
 						Content: map[string]string{
-							"title": "Whishes",
+							"title":       "Whishes",
 							"description": "Send a Wishes",
 							"referenceId": "1231233423123123",
 						},
@@ -167,12 +168,13 @@ var siteModels = map[string]SiteModel{
 	},
 	"id2": {
 		UserModel: userModel,
+		HashID:    "id2",
 		Template:  "MICRO_SITE",
 		Theme:     "BIO_1",
-		Settings:  map[string]string{
+		Settings: map[string]string{
 			"avatar": "https://image_url",
-			"title": "Ikhsan Mahendri",
-			"bio": "Welcome to My Content",
+			"title":  "Ikhsan Mahendri",
+			"bio":    "Welcome to My Content",
 		},
 		UrlType:   "SLUG",
 		EndDate:   "1741852352",
@@ -182,42 +184,42 @@ var siteModels = map[string]SiteModel{
 		Slug:      "ikhsan",
 		SubSlug:   "",
 		StartDate: "1647183152",
-		Modules:   []Modules{
+		Modules: []Modules{
 			{
-				Language:  "ID",
+				Language: "ID",
 				Contents: []Module{
 					{
 						ModuleCode: "LINK",
 						Content: []map[string]string{
 							{
-								"url": "https://blablabalbla",
+								"url":   "https://blablabalbla",
 								"color": "#fffff",
-								"text": "Ini Link",
+								"text":  "Ini Link",
 							},
 							{
-								"url": "https://blablabalbla",
+								"url":   "https://blablabalbla",
 								"color": "#fffff",
-								"text": "Ini Link",
+								"text":  "Ini Link",
 							},
 							{
-								"url": "https://blablabalbla",
+								"url":   "https://blablabalbla",
 								"color": "#fffff",
-								"text": "Ini Link",
+								"text":  "Ini Link",
 							},
 							{
-								"url": "https://blablabalbla",
+								"url":   "https://blablabalbla",
 								"color": "#fffff",
-								"text": "Ini Link",
+								"text":  "Ini Link",
 							},
 							{
-								"url": "https://blablabalbla",
+								"url":   "https://blablabalbla",
 								"color": "#fffff",
-								"text": "Ini Link",
+								"text":  "Ini Link",
 							},
 							{
-								"url": "https://blablabalbla",
+								"url":   "https://blablabalbla",
 								"color": "#fffff",
-								"text": "Ini Link",
+								"text":  "Ini Link",
 							},
 						},
 					},
@@ -232,9 +234,9 @@ func getEndUserSite(c *gin.Context) {
 	if language == "" {
 		language = "ID"
 	}
-	slugs := map[string]string {
+	slugs := map[string]string{
 		"wedding": "id1",
-		"bio": "id2",
+		"bio":     "id2",
 	}
 
 	slug := c.Param("slug")
@@ -271,7 +273,6 @@ func getSiteById(c *gin.Context) {
 
 func updateSiteById(c *gin.Context) {
 
-
 	siteSerializer := SiteSerializer{c, siteModels["id1"]}
 	c.JSON(http.StatusOK, gin.H{"data": siteSerializer.Response()})
 
@@ -282,7 +283,6 @@ func getOrderSiteById(c *gin.Context) {
 }
 
 func createSiteById(c *gin.Context) {
-
 
 	siteSerializer := SiteSerializer{c, siteModels["id1"]}
 	c.JSON(http.StatusOK, gin.H{"data": siteSerializer.Response()})

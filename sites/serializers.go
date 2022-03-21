@@ -13,6 +13,7 @@ type SiteSerializer struct {
 }
 
 type SiteResponse struct {
+	HashID    string      `json:"HashID"`
 	Template  string      `json:"template"`
 	Theme     string      `json:"theme"`
 	Settings  interface{} `json:"settings"`
@@ -29,17 +30,18 @@ type SiteResponse struct {
 
 func (s *SiteSerializer) Response() SiteResponse {
 	return SiteResponse{
-		Template: s.SiteModel.Template,
-		Theme: s.SiteModel.Theme,
-		Settings: s.SiteModel.Settings,
-		UrlType: s.SiteModel.UrlType,
-		Slug: s.SiteModel.Slug,
+		HashID:    s.SiteModel.HashID,
+		Template:  s.SiteModel.Template,
+		Theme:     s.SiteModel.Theme,
+		Settings:  s.SiteModel.Settings,
+		UrlType:   s.SiteModel.UrlType,
+		Slug:      s.SiteModel.Slug,
 		StartDate: s.SiteModel.StartDate,
-		EndDate: s.SiteModel.EndDate,
-		SubSlug: s.SiteModel.SubSlug,
-		Icon: s.SiteModel.Icon,
-		Language: s.SiteModel.Language,
-		Modules: s.SiteModel.Modules,
+		EndDate:   s.SiteModel.EndDate,
+		SubSlug:   s.SiteModel.SubSlug,
+		Icon:      s.SiteModel.Icon,
+		Language:  s.SiteModel.Language,
+		Modules:   s.SiteModel.Modules,
 	}
 }
 
@@ -49,7 +51,7 @@ type SitesSerializer struct {
 }
 
 type SitesResponse struct {
-	ID       uint   `json:"ID"`
+	HashID   string `json:"HashID"`
 	Template string `json:"template"`
 	Status   int    `json:"status"`
 	Title    string `json:"title"`
@@ -60,7 +62,7 @@ func (s *SitesSerializer) Response() []SitesResponse {
 
 	for _, model := range s.SitesModel {
 		sites = append(sites, SitesResponse{
-			ID:       model.ID,
+			HashID:   model.HashID,
 			Template: model.Template,
 			Status:   1,
 			Title:    model.Title,
@@ -71,18 +73,18 @@ func (s *SitesSerializer) Response() []SitesResponse {
 }
 
 type EndUserSiteSerializer struct {
-	C          *gin.Context
+	C         *gin.Context
 	SiteModel SiteModel
-	Language   string
+	Language  string
 }
 
 type EndUserSiteResponse struct {
-	Template  string      `json:"template"`
-	Theme     string      `json:"theme"`
-	Settings  interface{} `json:"settings"`
-	Icon      string      `json:"icon"`
-	Title     string      `json:"title"`
-	Modules   interface{} `json:"modules"`
+	Template string      `json:"template"`
+	Theme    string      `json:"theme"`
+	Settings interface{} `json:"settings"`
+	Icon     string      `json:"icon"`
+	Title    string      `json:"title"`
+	Modules  interface{} `json:"modules"`
 }
 
 func (s *EndUserSiteSerializer) Response() EndUserSiteResponse {
@@ -95,9 +97,9 @@ func (s *EndUserSiteSerializer) Response() EndUserSiteResponse {
 	}
 	return EndUserSiteResponse{
 		Template: s.SiteModel.Template,
-		Theme: s.SiteModel.Theme,
+		Theme:    s.SiteModel.Theme,
 		Settings: s.SiteModel.Settings,
-		Icon: s.SiteModel.Icon,
-		Modules: modules.Contents,
+		Icon:     s.SiteModel.Icon,
+		Modules:  modules.Contents,
 	}
 }

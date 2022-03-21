@@ -11,6 +11,8 @@ import (
 
 type SiteModel struct {
 	gorm.Model
+	ID        uint   `json:"ID" gorm:"primary_key"`
+	HashID    string `json:"HashID" gorm:"column:hash_id"`
 	UserModel users.UserModel
 	Template  string      `json:"template" gorm:"column:template"`
 	Theme     string      `json:"theme" gorm:"column:theme"`
