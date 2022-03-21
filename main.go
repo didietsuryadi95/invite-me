@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -63,5 +64,5 @@ func main() {
 		port = config.Server.Port
 	}
 
-	r.Run(port) // listen and serve on 0.0.0.0:8080
+	r.Run(fmt.Sprintf("%s%s", ":", port)) // listen and serve on 0.0.0.0:8080
 }
