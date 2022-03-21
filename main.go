@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/gin-gonic/gin"
 
 	"github.com/jinzhu/gorm"
@@ -56,5 +58,10 @@ func main() {
 		})
 	})
 
-	r.Run(config.Server.Port) // listen and serve on 0.0.0.0:8080
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = config.Server.Port
+	}
+
+	r.Run(port) // listen and serve on 0.0.0.0:8080
 }
