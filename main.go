@@ -25,11 +25,11 @@ func Migrate(db *gorm.DB) {
 func main() {
 	config := common.LoadConfig()
 
-	db := common.Init(*config)
-	Migrate(db)
-	defer db.Close()
+	// db := common.Init(*config)
+	// Migrate(db)
+	// defer db.Close()
 
-	common.Setup(*config)
+	// common.Setup(*config)
 
 	r := gin.Default()
 	v1 := r.Group("/api")
