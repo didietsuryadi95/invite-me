@@ -25,6 +25,7 @@ func AdminSite(router *gin.RouterGroup) {
 
 func SiteSettings(router *gin.RouterGroup) {
 	router.GET("/templates/", getTemplateProperty)
+	router.GET("/verify-slug/", getTemplateProperty)
 	router.GET("/templates/:code/modules", getModulesProperty)
 	router.GET("/themes", getTemplateProperty)
 	router.GET("/features", getTemplateProperty)
@@ -53,8 +54,6 @@ var siteModels = map[string]SiteModel{
 				"fullname":  "Ikhsan Mahendri ST",
 				"shortname": "Ikhsan",
 			},
-			"flower": "1",
-			"theme":  "dark",
 		},
 		UrlType:   "SUBDOMAIN",
 		EndDate:   "1741852352",
@@ -67,6 +66,105 @@ var siteModels = map[string]SiteModel{
 		Modules: []Modules{
 			{
 				Language: "ID",
+				Contents: []Module{
+					{
+						ModuleCode: "HOME",
+						Content: map[string]string{
+							"date":      "1231231242343",
+							"placeName": "Gedung Serba Guna Sapta Taruna 3",
+						},
+					},
+					{
+						ModuleCode: "EVENT",
+						Content: []map[string]string{
+							{
+								"eventType": "Ijab Qobul",
+								"startDate": "1231231231321",
+								"endDate":   "1231231231321",
+								"placeName": "Gedung Serba Guna Sapta Taruna 3",
+								"address":   "Jl. Koperpu II No.32, RT.001/RW.034, Bojong Rawalumbu, Kec. Rawalumbu, Kota Bks, Jawa Barat 17116",
+								"useMaps":   "true",
+								"maps":      "https://www.google.com/maps/place/Komplek+Sapta+Taruna+III/@-6.2833277,106.987009,17z/data=!3m1!4b1!4m5!3m4!1s0x2e698dedf4033c4f:0xbb28452d1532f7ea!8m2!3d-6.2833277!4d106.9891977?shorturl=1",
+							},
+							{
+								"eventType": "Wedding Reception",
+								"startDate": "1231231231321",
+								"endDate":   "1231231231321",
+								"placeName": "Gedung Serba Guna Sapta Taruna 3",
+								"address":   "Jl. Koperpu II No.32, RT.001/RW.034, Bojong Rawalumbu, Kec. Rawalumbu, Kota Bks, Jawa Barat 17116",
+								"useMaps":   "false",
+								"maps":      "https://www.google.com/maps/place/Komplek+Sapta+Taruna+III/@-6.2833277,106.987009,17z/data=!3m1!4b1!4m5!3m4!1s0x2e698dedf4033c4f:0xbb28452d1532f7ea!8m2!3d-6.2833277!4d106.9891977?shorturl=1",
+							},
+						},
+					},
+					{
+						ModuleCode: "BRIDE_PROFILE",
+						Content: []map[string]string{
+							{
+								"type": "TITLE",
+								"text": "Bismillahirrohmanirrahiim \n In the Name of Allah Subhanahu Wa Ta`ala the Most Beneficent and the Most Merciful. It is our moment to celebrate the love that unites our children",
+							},
+							{
+								"type":          "BRIDE",
+								"childrenOrder": "1",
+								"fatherName":    "Drs. Iwa Karsiwa, M.Pd",
+								"motherName":    "Dini Sri Handayani",
+							},
+							{
+								"type":          "GROOM",
+								"childrenOrder": "1",
+								"fatherName":    "Nurhendri",
+								"motherName":    "Magdalena",
+							},
+						},
+					},
+					{
+						ModuleCode: "GALLERY",
+						Content: []map[string]string{
+							{
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
+								"dimention": "Potrait",
+							},
+							{
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
+								"dimention": "Potrait",
+							},
+							{
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
+								"dimention": "Potrait",
+							},
+							{
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
+								"dimention": "Potrait",
+							},
+							{
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
+								"dimention": "Potrait",
+							},
+							{
+								"url":       "https://blablabalbla",
+								"type":      "PHOTO",
+								"dimention": "Potrait",
+							},
+						},
+					},
+					{
+						ModuleCode: "CHAT_BOX",
+						Content: map[string]string{
+							"title":       "Whishes",
+							"description": "Send a Wishes",
+							"referenceId": "1231233423123123",
+						},
+					},
+				},
+			},
+			{
+				Language: "EN",
 				Contents: []Module{
 					{
 						ModuleCode: "HOME",

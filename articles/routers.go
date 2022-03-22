@@ -2,11 +2,12 @@ package articles
 
 import (
 	"errors"
+	"net/http"
+	"strconv"
+
 	"github.com/didietsuryadi95/invite-me/common"
 	"github.com/didietsuryadi95/invite-me/users"
 	"github.com/gin-gonic/gin"
-	"net/http"
-	"strconv"
 )
 
 func ArticlesRegister(router *gin.RouterGroup) {
@@ -35,7 +36,7 @@ func ArticleCreate(c *gin.Context) {
 		c.JSON(http.StatusUnprocessableEntity, common.NewValidatorError(err))
 		return
 	}
-	//fmt.Println(articleModelValidator.articleModel.Author.UserModel)
+	// fmt.Println(articleModelValidator.articleModel.Author.UserModel)
 
 	if err := SaveOne(&articleModelValidator.articleModel); err != nil {
 		c.JSON(http.StatusUnprocessableEntity, common.NewError("database", err))
@@ -46,7 +47,7 @@ func ArticleCreate(c *gin.Context) {
 }
 
 func ArticleList(c *gin.Context) {
-	//condition := ArticleModel{}
+	// condition := ArticleModel{}
 	tag := c.Query("tag")
 	author := c.Query("author")
 	favorited := c.Query("favorited")
