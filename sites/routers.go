@@ -14,7 +14,7 @@ func Site(router *gin.RouterGroup) {
 }
 
 func AdminSite(router *gin.RouterGroup) {
-	router.GET("/", getSiteList)
+	router.GET("", getSiteList)
 	router.GET("/:id", getSiteById)
 	router.PUT("/:id", updateSiteById)
 	router.POST("/", createSiteById)
