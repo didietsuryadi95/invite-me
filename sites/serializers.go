@@ -55,6 +55,9 @@ type SitesResponse struct {
 	Template string `json:"template"`
 	Status   int    `json:"status"`
 	Title    string `json:"title"`
+	Slug     string `json:"slug"`
+	SubSlug  string `json:"subSlug"`
+	EndDate  string `json:"endDate"`
 }
 
 func (s *SitesSerializer) Response() []SitesResponse {
@@ -66,6 +69,9 @@ func (s *SitesSerializer) Response() []SitesResponse {
 			Template: model.Template,
 			Status:   1,
 			Title:    model.Title,
+			Slug:     model.Slug,
+			SubSlug:  model.SubSlug,
+			EndDate:  model.EndDate,
 		})
 	}
 
